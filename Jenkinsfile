@@ -1,5 +1,6 @@
 pipeline = {
     agent any
+    stages{
     stage('Build'){
         steps{
             bat 'npm i'
@@ -11,5 +12,5 @@ pipeline = {
         steps{
             bat 'npm run dev'
         }
-    }
+    }}
 }
