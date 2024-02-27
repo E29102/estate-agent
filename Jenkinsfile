@@ -7,15 +7,17 @@ pipeline {
                 
             }
         }
-
-        stage('run-parallel-branches'){
-            steps{
-                parallel{
-                a: {bat 'npx json-server db.json' }  
-                b: {bat 'npm run dev'}
-                
-                
+        stage('run-parallel-branches') {
+            steps {
+                parallel(
+                a: {
+                    bat "npx json-server db.json"
+                },
+                b: {
+                    bat "npm run dev"
                 }
+                )
             }
-    }}
 }
+        
+    }}
